@@ -98,19 +98,38 @@ export default function ok() {
       <div className='flex flex-row w-120 m-10 space-x-10'>
 
        {fact.map((name,index)=>(
-          <div key ={index} className='flex flex-col space-y-5'>
-            <h1>
-              {weekday[index]}
-            </h1>
-            {
-              name.map((nm,index2) => (
-                <div key ={index2} className='flex flex-col'>
-                  {timings[index2]}: {nm}
-                </div>
-              ))
+        
+        <div className='flex flex-row items-center justify-center'>
+     <table class="table-auto">
+  <thead>
+    {weekday[index]}
+    <tr>
+      <th>Time</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+        {
+          name.map((nm,index2) => (
+              
+            
+            <tr>
+      <td>{timings[index2]}</td>
+      <td>{nm}</td>
+    </tr>
+            
+            
+            
+        
+              
+              
+                  ))
             }
-          </div>
+            </tbody>
+            </table>
+</div>
        ))}
+
 
             </div>
 
@@ -135,7 +154,7 @@ export default function ok() {
 
 
      </div>
-     <div className='flex min-w-full'>
+     <div className='flex flex-row items-center justify-center'>
      <table class="table-auto">
   <thead>
     <tr>
@@ -146,7 +165,7 @@ export default function ok() {
   </thead>
   <tbody>
     <tr>
-      <td>The Sliding </td>
+      <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
       <td>Malcolm Lockyer</td>
       <td>1961</td>
     </tr>
