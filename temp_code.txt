@@ -1,0 +1,62 @@
+// import { getStaticProps } from 'next';
+
+
+// function get_all(){
+//   axios.get(`http://127.0.0.1:5000/all`).then(function (response) {
+//   //console.log("-------n")
+  
+//   //console.log(response.data)
+//   //console.log("-------n")
+//       return response.data;
+//     }).catch(function (error) {
+//         //console.log(error);
+//       });
+
+
+//     }
+
+
+
+    
+// export async function getStaticPaths() {
+//   //console.log("-------n")
+
+//   const paths = get_all();
+//   // //console.log(paths)
+//   const re ={
+//     paths:[
+//       { params:{ cs: 'cs9' }  },
+//   ],
+//     fallback: false,
+//   };
+//   return re
+// }
+
+
+// async function get_tabs(cs){
+//   // console.log("-------n")
+//   // console.log(cs)
+//   // console.log("-------n")
+//   const l = cs
+
+//   // return [["profcom"]]
+//     }
+
+// export async function getStaticProps({ params }) {
+//   try {
+//     const result = await axios.get(`http://127.0.0.1:5000/get_data/${params.cs}`);
+//     const data = result.data;
+//     return {
+//         props: {
+//             cs: data
+//         }
+//     }
+// } catch (error) {
+//     console.log(error);
+// }
+// revalidate: 60;
+  
+// }
+
+
+
