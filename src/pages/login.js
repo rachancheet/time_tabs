@@ -11,9 +11,8 @@ export default function log(){
     const router = useRouter()
 
     const [cookie, setcookie] = useCookies(["user"])
-
   useEffect((e)=>{
-    if(typeof cookie.user.name == "undefined"){
+    if(typeof cookie.user == "undefined"){
       setcookie("user", {"name":" ","password":""}, {
         path: "/",
       })
@@ -21,9 +20,11 @@ export default function log(){
     }
    },[])
    
-    if(router.isReady && cookie.user.name!=" "){
-        router.push("/")  
-      }
+    // if(router.isReady && typeof cookie.user != "undefined"&& cookie.user.name!=" "){
+    //   console.log("loda")
+    //     // router.push("/")  
+        
+    //   }
 
     // console.log((k)?k.name:"")
 
@@ -44,7 +45,7 @@ export default function log(){
         setmsg("wrong credentials")
     }
     else{
-      console.log("loda")
+      // console.log("loda")
         setcookie("user", {"name":res.data.name,"password":res.data.password}, {
         path: "/",
       })
@@ -52,7 +53,7 @@ export default function log(){
       //   path: "/",
       // })
 
-        // router.push("/")
+        router.push("/")
     }    
 })
   }

@@ -17,7 +17,7 @@ export default function show(){
   const [cookie, setcookie] = useCookies(["user"])
 
   useEffect((e)=>{
-    if(typeof cookie.user.name == "undefined"){
+    if(typeof cookie.user == "undefined"){
       setcookie("user", {"name":" ","password":""}, {
         path: "/",
       })

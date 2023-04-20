@@ -89,7 +89,7 @@ def login():
     
     data = request.get_json()["data"]
     col = db.user.find_one({"name":data["name"]})
-    print(col)
+    # print(col)
     dict = {}
     if col:
         if data["password"]==col["password"]:

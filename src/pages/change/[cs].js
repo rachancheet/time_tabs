@@ -19,20 +19,31 @@ export default function loda(){
 
 
   useEffect((e)=>{
-    const name = cookie.user.name
-    const password= cookie.user.password
-    axios.post("http://127.0.0.1:5000/login",{data:{"name":name,"password":password}}).then((res)=>{
-    console.log(res.data)                  
+    if(typeof cookie.user == "undefined"){
+      setcookie("user", {"name":" ","password":""}, {
+        path: "/",
+      })
+      router.push("/login")  
+    }
+    else if(cookie.user.name==" "){
+      router.push("/login")  
+
+    }
+    else{
+
+      const name = cookie.user.name
+      const password= cookie.user.password
+      axios.post("http://127.0.0.1:5000/login",{data:{"name":name,"password":password}}).then((res)=>{
+        console.log(res.data)                  
     if((res.data.name) =="fail"){
       router.push("/")
     }
+    
+  }
+  )}
+},[router])
 
-    }
-  )},[router])
-    if(router.isReady && (cookie.user.name==" "||typeof cookie.user.name == "undefined") ){
-        router.push("/login")  
-      }
-    // console.log("adwoj")
+  // console.log("adwoj")
 
 
     const [fact, setfact] = useState([[]])

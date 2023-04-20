@@ -15,7 +15,7 @@ export default function ok() {
 
 
   useEffect((e)=>{
-    if(typeof cookie.user.name == "undefined"){
+    if(typeof cookie.user == "undefined"){
       setcookie("user", {"name":" ","password":""}, {
         path: "/",
       })
@@ -154,7 +154,7 @@ export default function ok() {
 
 
      </div>
-     <div className='flex flex-row items-center justify-center'>
+     {/* <div className='flex flex-row items-center justify-center'>
      <table class="table-auto">
   <thead>
     <tr>
@@ -181,7 +181,7 @@ export default function ok() {
     </tr>
   </tbody>
 </table>
-</div>
+</div> */}
 
 </div>
 </>
