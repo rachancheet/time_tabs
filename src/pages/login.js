@@ -11,15 +11,11 @@ export default function log(){
     const router = useRouter()
 
     const [cookie, setcookie] = useCookies(["user"])
-  useEffect((e)=>{
     if(typeof cookie.user == "undefined"){
       setcookie("user", {"name":" ","password":""}, {
         path: "/",
       })
-
     }
-   },[])
-   
     // if(router.isReady && typeof cookie.user != "undefined"&& cookie.user.name!=" "){
     //   console.log("loda")
     //     // router.push("/")  
@@ -59,18 +55,19 @@ export default function log(){
   }
   return(
     <>
-    <h1></h1>
-    <div className="grid h-screen place-items-center">
-        <div className="rounded bg-gray-600 bg-opacity-30 align-items">
+      <div className='flex h-screen justify-center items-center'>
+<div className='flex p-10 shrink-0 align-center border-2 rounded-md border-[#e0f2fe]'>
+    {/* <div className="grid h-screen place-items-center">
+        <div className="rounded bg-gray-600 bg-opacity-30 align-items"> */}
 
         <form onSubmit={handleSubmit}>
             <div className="w-3/5 m-10 flex flex-col gap-10">
-                <input name ="name" ></input>
-                <input name = "password"></input>
+                <input className="rounded" placeholder = " name" name ="name" ></input>
+                <input className="rounded" placeholder=" password" name = "password"></input>
             {msg &&(
             <text className="text-red-400 ">{msg}</text>
             )}
-                <button  className='bg-lime-400 text-black'> 
+                <button  className='py-2 px-4 shadow-md no-underline rounded-full bg-[#16a34a] text-white font-sans font-semibold text-sm border-blue btn-primary hover:text-white hover:bg-blue-light focus:outline-none active:shadow-none mr-2'> 
             submit
             </button>
             </div>

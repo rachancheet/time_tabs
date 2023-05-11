@@ -1,64 +1,54 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import React, { useEffect, useState,useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
 import { useRouter } from 'next/router'
-import { resolve } from 'styled-jsx/css';
-import { useContext } from 'react';
-import appcontext from '../../context/appcontext';
 import { useCookies } from 'react-cookie';
 
 export default function ok() {
 
   const [cookie, setcookie] = useCookies(["user"])
+  if(typeof cookie.user == "undefined"){
+    setcookie("user", {"name":" ","password":""}, {
+      path: "/",
+    })
+  }
 
-
-  useEffect((e)=>{
-    if(typeof cookie.user == "undefined"){
-      setcookie("user", {"name":" ","password":""}, {
-        path: "/",
-      })
-
-    }
-   },[])
   const [fact, setfact] = useState([[]])
   // setfact(props.cs);
   const router = useRouter()
-  const {cs} = router.query;
+  const { cs } = router.query;
 
   // console.log(context)
-  useEffect(()=>{
+  useEffect(() => {
     console.log(cs)
-    axios.get(`http://127.0.0.1:5000/get_data/${cs}`).then((response)=>{
+    axios.get(`http://127.0.0.1:5000/get_data/${cs}`).then((response) => {
 
       // console.log("data");
       // console.log(response.data);
       setfact(response.data)
     })
 
-  },[router])
+  }, [router])
 
   // setfact(tabs)
   // setcsrouter.query
   // let containerRef = useRef(null);
   // let gh = containerRef.children[0];`
-  
 
-    // return fact;
-  
-  
-  function update_page(e){
+
+  // return fact;
+
+
+  function update_page(e) {
     e.preventDefault();
     // console.log("loda")
-    router.push(`/change/${cs}`)
+    router.push(`/update/${cs}`)
   }
 
 
 
 
-    // ////console.log("loda")
-  const weekday = ["mondays", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+  // ////console.log("loda")
+  const weekday = ["MONDAYS", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
   const timings = ["8:50-9:40", "9:40-10:30", "10:30-11:20", "11:20-12:10", "12:10-1:00", "1:00-1:50", "1:50-2:40", "2:40-3:30", "3:30-4:20", "4:20-5:10"]
 
 
@@ -84,7 +74,7 @@ export default function ok() {
   //     }).then((response) => {
   //       // setfact(response.data);
   //       console.log(response.data)
-  
+
   //     }).catch(function (error) {
   //       console.log(error);
   //     });
@@ -94,67 +84,64 @@ export default function ok() {
   return (
     <>
 
-    <div className='flex flex-col'>
-      <div className='flex flex-row w-120 m-10 space-x-10'>
+<div className='flex h-screen justify-center items-center'>
+<div className='flex p-10 shrink-0 align-center border-2 rounded-md border-[#e0f2fe]'>
+      <div className='flex flex-col'>
+        <div className='flex flex-row w-120 m-10 space-x-10'>
 
-       {fact.map((name,index)=>(
-        
-        <div className='flex flex-row items-center justify-center'>
-     <table class="table-auto">
-  <thead>
-    {weekday[index]}
-    <tr>
-      <th>Time</th>
-      <th>Class</th>
-    </tr>
-  </thead>
-  <tbody>
-        {
-          name.map((nm,index2) => (
-              
-            
-            <tr>
-      <td>{timings[index2]}</td>
-      <td>{nm}</td>
-    </tr>
-            
-            
-            
-        
-              
-              
-                  ))
-            }
-            </tbody>
-            </table>
-</div>
-       ))}
+          {fact.map((name, index) => (
 
+            <div className='flex flex-row items-center justify-center'>
+              <table class="table-auto">
+                <thead>
+                  {weekday[index]}
+                  <tr>
+                    <th>Time</th>
+                    <th>Class</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    name.map((nm, index2) => (
 
+                      <tr>
+                        <td>{timings[index2]}</td>
+                        <td>{nm}</td>
+                      </tr>
+
+                    ))
+                  }
+                </tbody>
+              </table>
             </div>
+          ))}
 
 
-<div className='flex flex-row-reverse w-120 m-10 space-x-10'>
+        </div>
 
-    <form onSubmit={update_page}  >
-            <button  className='bg-lime-400 text-black'> 
-            edit
+
+        <div className='flex flex-row-reverse w-120 m-10 space-x-10'>
+
+          <form onSubmit={update_page}  >
+
+            <button className='py-2 px-4 shadow-md no-underline rounded-full bg-[#16a34a] text-white font-sans font-semibold text-sm border-blue btn-primary hover:text-white hover:bg-blue-light focus:outline-none active:shadow-none mr-2'>
+              edit
             </button>
-    </form>
-    <form onSubmit={(e)=>{
-      e.preventDefault()
-      setcookie("user", {"name":" ","password":""}, {
-        path: "/",
-      })
-    }}  >
-            <button  className='bg-lime-400 text-black'> 
-            sign out
+          </form>
+          <form onSubmit={(e) => {
+            e.preventDefault()
+            setcookie("user", { "name": " ", "password": "" }, {
+              path: "/",
+            })
+          }}  >
+            <button className='py-2 px-4 shadow-md no-underline rounded-full bg-[#16a34a] text-white font-sans font-semibold text-sm border-blue btn-primary hover:text-white hover:bg-blue-light focus:outline-none active:shadow-none mr-2'>
+              sign out
             </button>
-    </form>
+          </form>
 
 
-     </div>
-     {/* <div className='flex flex-row items-center justify-center'>
+        </div>
+        {/* <div className='flex flex-row items-center justify-center'>
      <table class="table-auto">
   <thead>
     <tr>
@@ -183,8 +170,11 @@ export default function ok() {
 </table>
 </div> */}
 
-</div>
-</>
+      </div>
+      </div>
+      </div>
+
+    </>
   )
 }
 
@@ -199,4 +189,3 @@ export default function ok() {
 
 
 
- 

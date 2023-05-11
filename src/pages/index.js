@@ -16,14 +16,12 @@ export default function show(){
 
   const [cookie, setcookie] = useCookies(["user"])
 
-  useEffect((e)=>{
-    if(typeof cookie.user == "undefined"){
-      setcookie("user", {"name":" ","password":""}, {
-        path: "/",
-      })
-
-    }
-   },[])
+  if(typeof cookie.user == "undefined"){
+    setcookie("user", {"name":" ","password":""}, {
+      path: "/",
+    })
+  }
+  
   return(
     <div>
       {/* <h1>
@@ -31,9 +29,15 @@ export default function show(){
       </h1> */}
     {/* <form className="" onSubmit={`${where}`}> */}
     {/* {posts.map((post) => ())} */}
-  
-    <Link href="/show/cs9" >cs9</Link>
-    <Link href="/show/cs10" >cs10</Link>
+  <div className='flex h-screen justify-center items-center'>
+<div className='flex p-10 shrink-0 align-center border-2 rounded-md border-[#e0f2fe]'>
+
+    <Link href="/show/cs9" ><button class="py-2 px-4 shadow-md no-underline rounded-full bg-[#16a34a] text-white font-sans font-semibold text-sm border-blue btn-primary hover:text-white hover:bg-blue-light focus:outline-none active:shadow-none mr-2">Cs9</button>
+  </Link>
+    <Link href="/show/cs10" ><button class="py-2 px-4 shadow-md no-underline rounded-full bg-[#16a34a] text-white font-sans font-semibold text-sm border-blue btn-primary hover:text-white hover:bg-blue-light focus:outline-none active:shadow-none mr-2">Cs10</button>
+  </Link>
+</div>
+  </div>
     {/* <Link href="/cs9" >cs9</Link>
     <Link href="/cs9" >cs9</Link>import cookieCutter from 'cookie-cutter' */}
 

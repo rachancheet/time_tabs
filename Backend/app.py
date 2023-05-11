@@ -73,14 +73,13 @@ def lund3(cs):
         col.update_one({"name": cs},
                     {"$set": {
                         "schedule": data["baby"]}
-
                         })
         col2 = db["log"]
         col2.insert_one({"by":data["log"],"time":datetime.now().strftime("%d/%m/%Y, %I:%M:%S %p")
 ,"changes":data["baby"]})
         # print(json.loads(request.data)['baby'], ":  ", day)
 
-        return "request.data"
+        return request.data
         # password
     else:
         return "fail"
