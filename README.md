@@ -1,3 +1,29 @@
+
+
+
+
+
+
+
+
+
+
+![Screenshot 2023-05-26 023037](https://github.com/rachancheet/time_tabs/assets/55895940/261c2e4f-cd7c-4b70-894b-83e4f53d0022)
+
+![Screenshot 2023-05-26 023048](https://github.com/rachancheet/time_tabs/assets/55895940/84df20f6-feda-47dd-8cce-309883a02090)
+
+
+persistance login
+![Screenshot 2023-05-26 023029](https://github.com/rachancheet/time_tabs/assets/55895940/30456abe-147c-4797-8466-e32504544f9f)
+
+
+
+
+
+Editable content
+![Screenshot 2023-05-26 023044](https://github.com/rachancheet/time_tabs/assets/55895940/784225db-2e62-40e4-95a7-4fa3ab4c766a)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
