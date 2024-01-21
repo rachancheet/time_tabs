@@ -15,7 +15,7 @@ app = Flask("VELLE")
 CORS(app)
 
 database = MongoClient(
-    "Do not mess with me")
+    "mongodb+srv://raxx:bNdYYcM6utcaY8d9@cluster0.mo1iuqx.mongodb.net/")
 db = database.time_tabs
 
 
@@ -106,4 +106,4 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8001, host="0.0.0.0")
+    app.run(debug=True,host='0.0.0.0',port=8001)
