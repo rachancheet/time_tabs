@@ -15,7 +15,7 @@ app = Flask("VELLE")
 CORS(app)
 
 database = MongoClient(
-    "mongodb+srv://raxx:bNdYYcM6utcaY8d9@cluster0.mo1iuqx.mongodb.net/")
+    "")
 db = database.time_tabs
 
 
